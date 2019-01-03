@@ -55,13 +55,12 @@ module.exports = (env, options = {}) => {
   };
 
   if (options.mode === 'development') {
-    config.plugins = [
-      ...config.plugins,
-      new webpack.HotModuleReplacementPlugin(),
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    config.plugins.push(
       new HtmlWebpackPlugin({
         template: 'example/index.html'
       })
-    ];
+    );
 
     config.devtool = 'inline-source-map';
     config.devServer = {
