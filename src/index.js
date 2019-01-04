@@ -11,12 +11,16 @@ export class HelloWorld {
   }
 
   addEvent() {
-    this.buttonElement.addEventListener('click', this.announceMesaage.bind(this));
+    this.buttonElement.addEventListener('click', this.announceMessage.bind(this));
   }
 
-  announceMesaage() {
+  announceMessage() {
     const name = this.inputElement.value;
     const message = `Hello! ${name}!`;
     this.messageElement.innerHTML = message;
   }
+}
+
+if (document.getElementById('hello-world-control')) {
+  window.helloWorld = new HelloWorld(document.getElementById('hello-world-control'));
 }
